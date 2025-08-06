@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Form nhập KH mục tiêu</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f8fafc;
+      padding: 0;
+      margin: 0;
+    }
+    .container {
+      max-width: 520px;
+      margin: 18px auto;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+      padding: 20px 14px 12px 14px;
+    }
+    h2 {
+      font-weight: 600;
+      font-size: 1.28rem;
+      margin-bottom: 12px;
+      color: #2868cf;
+    }
+    label {
+      font-weight: 500;
+      margin-top: 12px;
+      display: block;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 8px 8px;
+      margin-top: 4px;
+      border: 1px solid #ced0d6;
+      border-radius: 6px;
+      font-size: 1rem;
+      box-sizing: border-box;
+      margin-bottom: 10px;
+      background: #f9fafc;
+    }
+    .section {
+      margin-bottom: 7px;
+    }
+    .inline-group {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .checkbox-group, .radio-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px 24px;
+      margin-top: 2px;
+      margin-bottom: 5px;
+    }
+    .star-rating {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 9px;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+    button {
+      width: 100%;
+      padding: 11px;
+      background: #2868cf;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.11rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 14px;
+    }
+    .msg {
+      text-align: center;
+      margin: 10px 0;
+      font-weight: bold;
+    }
+    @media (max-width: 600px) {
+      .container {
+        border-radius: 0;
+        box-shadow: none;
+        padding: 11px 3vw 9px 3vw;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h2>Nhập danh sách KH mục tiêu</h2>
+  <div class="msg" id="msg"></div>
+  <form id="mainForm" autocomplete="off">
+    <div class="section">
+      <label>Người bán hàng/AM *</label>
+      <select name="amName" required>
+        <option value="">--Chọn--</option>
+        <option>NV1</option>
+        <option>NV2</option>
+        <option>NV3</option>
+      </select>
+    </div>
+    <div class="section">
+      <label>Tên khách hàng *</label>
+      <input name="customerName" required />
+    </div>
+    <div class="section">
+      <label>Địa chỉ</label>
+      <input name="address" />
+    </div>
+    <div class="section">
+      <label>Tên khu vực</label>
+      <select name="area">
+        <option value="">--Chọn--</option>
+        <option>Khu A</option>
+        <option>Khu B</option>
+        <option>Khu C</option>
+      </select>
+    </div>
+    <div class="section">
+      <label>Tên liên hệ/khách hàng</label>
+      <input name="contactName" />
+    </div>
+    <div class="section">
+      <label>SĐT liên hệ</label>
+      <input name="contactPhone" type="tel" />
+    </div>
+    <div class="section">
+      <label>Phân loại KH NÓNG</label>
+      <div class="radio-group">
+        <label><input type="radio" name="khNong" value="Không" checked> Không</label>
+        <label><input type="radio" name="khNong" value="Đồng ý phôi"> Đồng ý phôi</label>
+      </div>
+    </div>
+    <div class="section">
+      <label>Phân loại KH ÂM</label>
+      <div class="radio-group">
+        <label><input type="radio" name="khAm" value="Không" checked> Không</label>
+        <label><input type="radio" name="khAm" value="Đồng ý phôi"> Đồng ý phôi</label>
+      </div>
+    </div>
+    <div class="section">
+      <label>Số bán dịch vụ FIBER</label>
+      <div class="radio-group">
+        <label><input type="radio" name="fiber" value="Không" checked> Không</label>
+        <label><input type="radio" name="fiber" value="Đồng ý phôi"> Đồng ý phôi</label>
+      </div>
+    </div>
+    <div class="section">
+      <label>Số bán dịch vụ MYTV</label>
+      <div class="radio-group">
+        <label><input type="radio" name="mytv" value="Không" checked> Không</label>
+        <label><input type="radio" name="mytv" value="Đồng ý phôi"> Đồng ý phôi</label>
+      </div>
+    </div>
+    <div class="section">
+      <label>Số bán dịch vụ Mesh/Cam</label>
+      <div class="radio-group">
+        <label><input type="radio" name="mesh" value="Không" checked> Không</label>
+        <label><input type="radio" name="mesh" value="Đồng ý phôi"> Đồng ý phôi</label>
+      </div>
+    </div>
+    <div class="section">
+      <label>Số bán dịch vụ tài khoản chính</label>
+      <div class="radio-group">
+        <label><input type="radio" name="taikhoanchinh" value="Không" checked> Không</label>
+        <label><input type="radio" name="taikhoanchinh" value="Đồng ý phôi"> Đồng ý phôi</label>
+      </div>
+    </div>
+    <div class="section">
+      <label>Mối quan hệ người liên hệ</label>
+      <div class="radio-group">
+        <label><input type="radio" name="relationship" value="Chủ thuê bao" checked> Chủ thuê bao</label>
+        <label><input type="radio" name="relationship" value="Người nhà"> Người nhà</label>
+        <label><input type="radio" name="relationship" value="Hàng xóm"> Hàng xóm</label>
+        <label><input type="radio" name="relationship" value="Cùng cơ quan"> Cùng cơ quan</label>
+        <label><input type="radio" name="relationship" value="Người giới thiệu"> Người giới thiệu</label>
+        <label><input type="radio" name="relationship" value="Khác"> Khác</label>
+      </div>
+    </div>
+    <div class="section">
+      <label>Dịch vụ đã bán</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="soldServices" value="Sim thoại di động"> Sim thoại di động</label>
+        <label><input type="checkbox" name="soldServices" value="Sim data"> Sim data</label>
+        <label><input type="checkbox" name="soldServices" value="Fiber"> Fiber</label>
+        <label><input type="checkbox" name="soldServices" value="MYTV"> MYTV</label>
+        <label><input type="checkbox" name="soldServices" value="Mesh"> Mesh</label>
+        <label><input type="checkbox" name="soldServices" value="Camera"> Camera</label>
+      </div>
+    </div>
+    <div class="section">
+      <label>Loại khách hàng tiềm năng</label>
+      <div class="radio-group">
+        <label><input type="radio" name="khType" value="Nóng/đã chốt" checked> Nóng/đã chốt</label>
+        <label><input type="radio" name="khType" value="Âm/chưa chốt"> Âm/chưa chốt</label>
+        <label><input type="radio" name="khType" value="Đã huỷ"> Đã huỷ</label>
+      </div>
+    </div>
+    <div class="section">
+      <label>Mức doanh thu dự kiến</label>
+      <div class="radio-group">
+        <label><input type="radio" name="revenue" value="200K" checked> 200K</label>
+        <label><input type="radio" name="revenue" value="400K"> 400K</label>
+        <label><input type="radio" name="revenue" value="600K"> 600K</label>
+        <label><input type="radio" name="revenue" value="800K"> 800K</label>
+        <label><input type="radio" name="revenue" value="1000K"> 1000K</label>
+        <label><input type="radio" name="revenue" value="1500K"> 1500K</label>
+        <label><input type="radio" name="revenue" value="Trên 1500K"> Trên 1500K</label>
+        <label><input type="radio" name="revenue" value="Chưa xác định"> Chưa xác định</label>
+      </div>
+    </div>
+    <div class="section">
+      <label>Có dùng WiFi nhà mạng khác</label>
+      <select name="wifiOther">
+        <option>Không</option>
+        <option>Có</option>
+      </select>
+    </div>
+    <div class="section">
+      <label>Khu vực có cáp nhà mạng khác</label>
+      <select name="areaOther">
+        <option>Không</option>
+        <option>Có</option>
+      </select>
+    </div>
+    <div class="section">
+      <label>Đánh giá mạng VNPT</label>
+      <div class="star-rating" id="starRating">
+        <span data-star="1">&#9733;</span>
+        <span data-star="2">&#9733;</span>
+        <span data-star="3">&#9733;</span>
+        <span data-star="4">&#9733;</span>
+        <span data-star="5">&#9733;</span>
+      </div>
+      <input type="hidden" name="vnptRating" id="ratingVal" value="3"/>
+    </div>
+    <div class="section">
+      <label>NVKD đề nghị</label>
+      <input name="nvkdsuggest" />
+    </div>
+    <div class="section">
+      <label>Ý kiến thêm</label>
+      <textarea name="note"></textarea>
+    </div>
+    <button type="submit">Gửi</button>
+  </form>
+</div>
+
+<script>
+//const LINK_API = 'https://script.google.com/macros/s/AKfycbzaLmfyWatzsmbc_PJaFlba8ez78FYgjogJgCpzYwnHGojnODZ42qIVBSPByhwYWJC41A/exec'; // ← Sửa lại link Apps Script API của bạn!
+
+const LINK_API = '/api/submit';
+
+
+// Xử lý rating star:
+const stars = document.querySelectorAll('#starRating span');
+const ratingInput = document.getElementById('ratingVal');
+stars.forEach(star => {
+  star.onclick = () => {
+    const val = star.getAttribute('data-star');
+    ratingInput.value = val;
+    stars.forEach(s => s.style.color = +s.getAttribute('data-star') <= +val ? '#fb0' : '#ccc');
+  };
+});
+if (stars.length) stars[2].onclick(); // Mặc định rating = 3 sao
+
+document.getElementById('mainForm').onsubmit = async function(e) {
+  e.preventDefault();
+  document.getElementById('msg').textContent = "Đang gửi...";
+  const fd = new FormData(this);
+  // Multi checkbox
+  let soldServices = [];
+  fd.getAll('soldServices').forEach(v=>soldServices.push(v));
+  // Chuẩn hoá object gửi
+  const data = {
+    amName: fd.get('amName'),
+    customerName: fd.get('customerName'),
+    address: fd.get('address'),
+    area: fd.get('area'),
+    contactName: fd.get('contactName'),
+    contactPhone: fd.get('contactPhone'),
+    khNong: fd.get('khNong'),
+    khAm: fd.get('khAm'),
+    fiber: fd.get('fiber'),
+    mytv: fd.get('mytv'),
+    mesh: fd.get('mesh'),
+    taikhoanchinh: fd.get('taikhoanchinh'),
+    relationship: fd.get('relationship'),
+    soldServices: soldServices,
+    khType: fd.get('khType'),
+    revenue: fd.get('revenue'),
+    wifiOther: fd.get('wifiOther'),
+    areaOther: fd.get('areaOther'),
+    vnptRating: fd.get('vnptRating'),
+    nvkdsuggest: fd.get('nvkdsuggest'),
+    note: fd.get('note')
+  };
+  try {
+    const res = await fetch(LINK_API, {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify(data)
+    });
+    const text = await res.text();
+    if(text.trim() === "OK") {
+      document.getElementById('msg').textContent = "Đã gửi thành công!";
+      this.reset();
+      stars[2].onclick(); // Reset rating = 3
+    } else {
+      document.getElementById('msg').textContent = "Lỗi gửi! Thử lại hoặc báo IT.";
+    }
+  } catch {
+    document.getElementById('msg').textContent = "Không kết nối được!";
+  }
+};
+</script>
+</body>
+</html>
